@@ -1,9 +1,7 @@
-
-
 import { useState,useEffect } from "react";
 import {Link} from "react-router-dom"
 import {collection,getDocs,deleteDoc,doc} from "firebase/firestore"
-import {db} from "./FirebaseConfig/firebase"
+import {db} from "./FirebaseConfig/firebase.js"
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 
@@ -25,7 +23,7 @@ console.log (data.docs)
 setPlayers(
     data.docs.map((doc)=>({...doc.data(),id:doc.id}))
 )
-/*  console.log (players)  */
+  console.log (players)  
 }
 
 // 4 funcion para eliminar un doc
@@ -81,16 +79,23 @@ return(
         <th>Master</th>
         <th>Primera</th>
         <th>Segunda</th>
+        <th>Tercera</th>
         <th>Promocional</th>
+        <th>Acciones</th>
     </tr>
 </thead>
 <tbody>
 {players.map((player)=>(
 <tr key={player.id}>
     
+    <td>{player.jugadorMaster}</td>
     <td>{player.jugadorPrimera}</td>
     <td>{player.jugadorSegunda}</td>
+    <td>{player.jugadorTercera}</td>
+    <td>{player.promocional}</td>
+
     <td>
+        
         <Link to={`/edit/${player.id}`} className="btn btn-light" ><i className="fa-solid fa-pencil"></i></Link>
     <button onClick={()=>{confirmDelete(player.id)}} className="btn btn-danger"><i className="fa-solid fa-trash"></i></button>
     </td>
