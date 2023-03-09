@@ -3,6 +3,7 @@ import './App.css';
 import  Carrousel  from "./components/Carrousel.jsx"
 import Show from "./components/Show.jsx";
 import Crear from "./components/Crear.jsx"
+import EditSesion from "./components/Gallery.jsx"
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 
 // export default function App() {
@@ -25,6 +26,7 @@ function App() {
 <>
     <NavBar/>
     <Carrousel/>
+    <EditSesion/>
 </>
 
 <Routes>

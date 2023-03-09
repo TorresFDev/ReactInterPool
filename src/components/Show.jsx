@@ -14,7 +14,7 @@ const Show = ()=>{
 const [players,setPlayers]= useState([])
 
 // 2 referenciamos la db de firestore
-const playersCollection = collection(db,"Barril")
+const playersCollection = collection(db,"Whynot")
 
 //3 funcion para mostrar todos los docs
 const getPlayers= async () =>{
@@ -28,7 +28,7 @@ setPlayers(
 
 // 4 funcion para eliminar un doc
 const deletePlayer= async(id)=>{
-const playerDoc= doc(db,"Barril",id)
+const playerDoc= doc(db,"Whynot",id)
 await deleteDoc (playerDoc)
 getPlayers()
 }
